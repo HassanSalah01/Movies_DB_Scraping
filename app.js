@@ -12,6 +12,17 @@ const ap = require("./appendFile");
         const browser = await puppeteer.launch({ headless: false });
         const page = await browser.newPage();
         await page.goto(url);
+        const test = await page.evaluate((pageId) => {
+            const div = [
+                ...document.querySelectorAll(`${pageId} .options`),
+            ].map((item) => {
+                return item.dataset.id + "\n";
+            });
+            return div;
+        }, pageId);
+        for (let i of test) {
+            await appendF(__dirname + "/test1.txt", i);
+        }
         await browser.close();
     }
 })();
