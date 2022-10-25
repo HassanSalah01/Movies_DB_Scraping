@@ -1,12 +1,4 @@
 import Puppeteer  from "puppeteer";
-// ((selG) => {
-//     console.log(selG); // I added this line
-//     let gp = document.querySelector(selG);
-//     let n = Array.from(gp.querySelectorAll('h1'), element => element.textContent);
-//     console.log(n[0]);
-//     return n;
-//   })()
-
 
 async function start(){
     const browser = await Puppeteer.launch();
@@ -56,17 +48,3 @@ start();
 
 
 
-// (async ()=>{
-//     const browser = await Puppeteer.launch();
-//     const page  = await browser.newPage();
-//     await page.goto("https://ooo.yalla-shoot.today/");
-//     const grab = await page.evaluate(()=>{
-//         const pp = document.querySelectorAll("matsh_live_b")
-//         return pp;
-//     })
-//     // const propertyNames = Object.keys(grab);
-//     // console.log(propertyNames[0])
-//     console.log(grab)
-
-//     await browser.close();
-// })();
